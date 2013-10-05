@@ -1,0 +1,28 @@
+Installation de g++
+Pour installer g++, exécutez les commandes suivantes dans un terminal :
+
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt-get install g++-4.8
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20
+Vérifiez la version du compilateur en exécutant la commande suivante dans un terminal :
+
+g++ --version
+votre version doit être équivalente (ou supérieur) à 4.8.0
+
+Installation de Geany
+Pour installer Geany, suivez les instructions suivantes :
+
+Dans un Terminal, taper la commande suivante: sudo apt-get install geany
+Configurer et tester Geany comme montré au bas de cette page (lien)
+
+
+Configuration de Geany et programme test
+Télécharger le fichier de test et enregistrer le sous le nom cpp11_test.cpp
+Ouvrir Geany et charger le fichier de test dans Geany
+Vous rendre dans le menu Construire -> Définir les commandes de construction
+Dans la colonne Commande, rajouter -std=c++11 à la fin des deux lignes Compiler et Construire. Valider ensuite pour enregistrer les modifications.
+Dans le menu Construire, choisir Construire ou utiliser le raccourcis clavier F9.
+Dans le menu Construire, choisir Exécuter ou utiliser le raccourcis clavier F5.
+Si tout est en ordre, un programme affichant une suite de nombre va apparaître à l'écran
+
