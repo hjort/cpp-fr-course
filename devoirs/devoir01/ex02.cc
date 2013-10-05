@@ -4,10 +4,10 @@ using namespace std;
 
 int main() 
 {
-  cout << "Entrez la premiere valeur  : ";
+  cout << "Entrez la premiere  valeur : ";
   int a(0);
   cin >> a;
-  cout << "Entrez la deuxieme valeur  : ";
+  cout << "Entrez la deuxieme  valeur : ";
   int b(0);
   cin >> b;
   cout << "Entrez la troisieme valeur : ";
