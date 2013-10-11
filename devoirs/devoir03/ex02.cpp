@@ -36,6 +36,9 @@ int main()
   // un « terme »
   double q;
 
+  bool mvs(false); // message de vitesse du son dépassée
+  bool mai(false); // message d'accélération est inférieure
+
   // afficher les caractéristiques du sportif à chaque seconde
   do {
 
@@ -44,6 +47,20 @@ int main()
     v = (g / s) * (1 - q) + v0 * q;
     h = h0 - (g / s) * (t - t0) - (v0 - g / s) / s * (1 - q);
     a = g - s * v;
+
+    // dès que la vitesse dépasse la vitesse du son (343 m/s),
+    // le programme affiche (en plus, mais qu'une seule fois) un message
+    if (!mvs && v > 343) {
+      cout << "## Felix depasse la vitesse du son" << endl;
+      mvs = true;
+    }
+
+    // dès que son accélération est inférieure à 0.5 m/s^2,
+    // le programme affiche (en plus, mais qu'une seule fois) un message
+    if (!mai && a < 0.5) {
+      cout << "## Felix a atteint sa vitesse maximale" << endl;
+      mai = true;
+    }
 
     // temps, altitude, vitesse, accélération
     if (h >= 0)
