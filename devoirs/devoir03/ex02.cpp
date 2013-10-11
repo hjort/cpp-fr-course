@@ -38,6 +38,7 @@ int main()
 
   bool mvs(false); // message de vitesse du son dépassée
   bool mai(false); // message d'accélération est inférieure
+  bool ouvert(false); // ouverture du parachute effectué
 
   // afficher les caractéristiques du sportif à chaque seconde
   do {
@@ -50,7 +51,7 @@ int main()
 
     // dès que la vitesse dépasse la vitesse du son (343 m/s),
     // le programme affiche (en plus, mais qu'une seule fois) un message
-    if (!mvs && v > 343) {
+    if (!mvs && v > 343.0) {
       cout << "## Felix depasse la vitesse du son" << endl;
       mvs = true;
     }
@@ -62,11 +63,28 @@ int main()
       mai = true;
     }
 
+    // ouverture du parachute (l'altitude est plus petite que 2500 m)
+    if (!ouvert && h < 2500.0 && t > 0) {
+
+      // changer la valeur de la surface du sportif
+      surface = 25.0;
+      s = surface / masse;
+
+      // changer les « conditions initiales » avec les valeurs actuelles
+      t0 = t;
+      v0 = v;
+      h0 = h;
+
+      // de plus, le programme doit afficher un message
+      cout << "## Felix ouvre son parachute" << endl;
+      ouvert = true;
+    }
+
     // temps, altitude, vitesse, accélération
-    if (h >= 0)
+    if (h >= 0.0)
       cout << t++ << ", " << h << ", " << v << ", " << a << endl;
 
-  } while (h >= 0);
+  } while (h >= 0.0);
 
   /*******************************************
    * Ne rien modifier apres cette ligne.
