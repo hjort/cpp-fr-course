@@ -63,6 +63,7 @@ void affiche_L(int hauteur)
 		fin_ligne();
 	}
 	barre_horizontale(hauteur, 0);
+	fin_ligne();
 }
 
 void affiche_O(int hauteur)
@@ -94,8 +95,8 @@ void affiche_A(int hauteur)
 {
 	for (int i = hauteur - 1, j = 0; i >= 0; i--, j+= 2) {
 		barre_a_droite(i);
-		if (i == 3) {
-			barre_horizontale(6, 0);
+		if (i == hauteur / 2) {
+			barre_horizontale(j, 0);
 			barre_a_gauche(0);
 		} else {
 			barre_a_gauche(j);
